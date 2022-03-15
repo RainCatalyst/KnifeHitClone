@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace EventChannels
 {
@@ -10,7 +11,7 @@ namespace EventChannels
         public UnityAction<int> OnKnivesUpdated;
         public UnityAction OnKnifeThrown;
         public UnityAction OnKnifeHit;
-        public UnityAction OnKnifeDeflected;
+        public event Action OnKnifeDeflected;
         public UnityAction OnLogDestroyed;
         public UnityAction OnAppleDestroyed;
 

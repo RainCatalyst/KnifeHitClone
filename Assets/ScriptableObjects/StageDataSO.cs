@@ -39,7 +39,7 @@ public class StageDataSO : ScriptableObject
         var rotationCurve = animationCurves[Random.Range(0, animationCurves.Length)];
 
         var level = ScriptableObject.CreateInstance<LevelDataSO>();
-        level.Init("GeneratedLevel", hitCount, logData, knifeData, knifePositions, applePositions, rotationCurve);
+        level.Init("RandomLevel", hitCount, logData, knifeData, knifePositions, applePositions, rotationCurve);
 
         return level;
     }
@@ -85,7 +85,6 @@ public class StageDataSO : ScriptableObject
 
         for (int i = 0; i < appleCount; i++)
         {
-            // TODO: Use slots
             var slotIdx = Random.Range(0, slots.Count);
 
             applePositions[i] = slots[slotIdx];
