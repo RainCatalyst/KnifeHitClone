@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
+    [SerializeField] ToggleEventChannelSO toggleInputEvent;
+    [SerializeField] IntEventChannelSO scoreEvent;
+    [SerializeField] IntEventChannelSO maxScoreEvent;
+    [SerializeField] IntEventChannelSO pointsEvent;
 
     Animation animation;
 
@@ -26,8 +30,8 @@ public class GameManager : MonoBehaviour
         gameEvents.OnGameFinished += OnGameFinished;
         gameEvents.OnLevelStarted += OnLevelStarted;
         gameEvents.OnLevelFinished += OnLevelFinished;
-        gameEvents.OnScoreAdded += OnScoreAdded;
-        gameEvents.OnPointAdded += OnPointAdded;
+        scoreEvent.OnValueAdded += OnScoreAdded;
+        pointsEvent.OnValueAdded += OnPointAdded;
     }
 
     void OnDisable()
@@ -36,16 +40,17 @@ public class GameManager : MonoBehaviour
         gameEvents.OnGameFinished -= OnGameFinished;
         gameEvents.OnLevelStarted -= OnLevelStarted;
         gameEvents.OnLevelFinished -= OnLevelFinished;
-        gameEvents.OnScoreAdded -= OnScoreAdded;
-        gameEvents.OnPointAdded -= OnPointAdded;
+        scoreEvent.OnValueAdded -= OnScoreAdded;
+        pointsEvent.OnValueAdded -= OnPointAdded;
     }
 
-    public void EnableInput() => gameEvents.ToggleInput(true);
-    public void DisableInput() => gameEvents.ToggleInput(false);
+    public void EnableInput() => toggleInputEvent.RaiseEvent(true);
+    public void DisableInput() => toggleInputEvent.RaiseEvent(false);
     public void StartLevel() => gameEvents.StartLevel();
 
     void Start()
     {
+        Vibration.Init();
         LoadPlayerData();
     }
 
@@ -59,14 +64,14 @@ public class GameManager : MonoBehaviour
     {
         maxScore = PlayerPrefs.GetInt("MaxScore", 0);
         points = PlayerPrefs.GetInt("Points", 0);
-        gameEvents.UpdatePoints(points);
-        gameEvents.UpdateHighscore(maxScore);
+        pointsEvent.UpdateValue(points);
+        maxScoreEvent.UpdateValue(maxScore);
     }
 
     void OnGameStarted()
     {
         score = 0;
-        gameEvents.UpdateScore(score);
+        scoreEvent.UpdateValue(score);
         animation.Play("GameStart");
     }
 
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
         if (score > maxScore)
         {
             maxScore = score;
-            gameEvents.UpdateHighscore(maxScore);
+            maxScoreEvent.UpdateValue(maxScore);
         }
         animation.Play("GameOver");
         SavePlayerData();
@@ -97,12 +102,12 @@ public class GameManager : MonoBehaviour
     void OnScoreAdded()
     {
         score++;
-        gameEvents.UpdateScore(score);
+        scoreEvent.UpdateValue(score);
     }
 
     void OnPointAdded()
     {
         points++;
-        gameEvents.UpdatePoints(points);
+        pointsEvent.UpdateValue(points);
     }
 }

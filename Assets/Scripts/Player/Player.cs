@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
-    [SerializeField] LevelEventChannelSO levelEvents; 
+    [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] ToggleEventChannelSO toggleInputEvent;
 
     [Header("Knife Properties")]
     [SerializeField] Knife knifePrefab;
@@ -27,20 +28,18 @@ public class Player : MonoBehaviour
 
     void OnEnable()
     {
-        gameEvents.OnInputToggled += OnInputToggled;
+        toggleInputEvent.OnEventRaised += OnInputToggled;
         gameEvents.OnLevelStarted += OnLevelStarted;
         gameEvents.OnLevelFinished += OnLevelFinished;
-        // levelEvents.OnMaxKnivesUpdated += OnMaxKnivesUpdated;
-        levelEvents.OnKnivesUpdated += OnKnivesUpdated;
+        knifeCountEvent.OnValueUpdated += OnKnivesUpdated;
     }
 
     void OnDisable()
     {
-        gameEvents.OnInputToggled -= OnInputToggled;
+        toggleInputEvent.OnEventRaised -= OnInputToggled;
         gameEvents.OnLevelStarted -= OnLevelStarted;
         gameEvents.OnLevelFinished -= OnLevelFinished;
-        // levelEvents.OnMaxKnivesUpdated -= OnMaxKnivesUpdated;
-        levelEvents.OnKnivesUpdated -= OnKnivesUpdated;
+        knifeCountEvent.OnValueUpdated -= OnKnivesUpdated;
     }
 
     void Update()
@@ -89,8 +88,6 @@ public class Player : MonoBehaviour
             return;
         currentKnife.Throw(throwVelocity);
         currentKnife = null;
-        
-        levelEvents.ThrowKnife();
 
         if (currentKnifeCount > 1)
             ReadyKnife();

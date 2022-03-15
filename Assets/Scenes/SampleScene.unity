@@ -370,8 +370,9 @@ GameObject:
   - component: {fileID: 178006946}
   - component: {fileID: 178006948}
   - component: {fileID: 178006947}
+  - component: {fileID: 178006949}
   m_Layer: 5
-  m_Name: ApplesText
+  m_Name: PointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,6 +494,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178006945}
   m_CullTransparentMesh: 1
+--- !u!114 &178006949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178006945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d705d764820f3a46b79925c72aaf899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueEvent: {fileID: 11400000, guid: 4b44ef9f90af48241b754d85d83ef788, type: 2}
 --- !u!1 &223394888
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +763,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
   levelEvents: {fileID: 11400000, guid: 2d40b68e1cea70f4e89b61fcf39f999a, type: 2}
+  maxKnifeCountEvent: {fileID: 11400000, guid: 9e34789706450fa41a87e0aa83fa70bb, type: 2}
+  scoreEvent: {fileID: 11400000, guid: 9ced8d361068fc2429732acaf81f2b12, type: 2}
+  maxScoreEvent: {fileID: 11400000, guid: 6eb65ced3c65b51429835ea4f2fe66ab, type: 2}
+  pointsEvent: {fileID: 11400000, guid: 4b44ef9f90af48241b754d85d83ef788, type: 2}
   stages:
   - {fileID: 11400000, guid: 66527201d57047a489676bcffd420b32, type: 2}
 --- !u!114 &360012009
@@ -1183,7 +1201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc2be76ebbde745b7eb78f8871b505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelEvents: {fileID: 11400000, guid: 2d40b68e1cea70f4e89b61fcf39f999a, type: 2}
+  maxKnifeCountEvent: {fileID: 11400000, guid: 9e34789706450fa41a87e0aa83fa70bb, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: 4138e9ff19c58b948a48fbffd50b2020, type: 2}
   knifeIconPrefab: {fileID: 6489792406323242797, guid: 5470accad35754244a926eb40f37137c, type: 3}
 --- !u!1 &1122987294
 GameObject:
@@ -1296,7 +1315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
-  levelEvents: {fileID: 11400000, guid: 2d40b68e1cea70f4e89b61fcf39f999a, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: 4138e9ff19c58b948a48fbffd50b2020, type: 2}
+  toggleInputEvent: {fileID: 11400000, guid: ea86a42990abf214ca64f4876367f3a1, type: 2}
   knifePrefab: {fileID: 291590579984401471, guid: 2aed5cac47baddf4a9d5a98cbe847726, type: 3}
   knifeData: {fileID: 11400000, guid: dc6a417b27aba544d81e3ced84390025, type: 2}
   knifePoint: {fileID: 1751645846}
@@ -1430,6 +1450,7 @@ GameObject:
   - component: {fileID: 1252074634}
   - component: {fileID: 1252074636}
   - component: {fileID: 1252074635}
+  - component: {fileID: 1252074637}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -1553,6 +1574,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252074633}
   m_CullTransparentMesh: 1
+--- !u!114 &1252074637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252074633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d705d764820f3a46b79925c72aaf899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueEvent: {fileID: 11400000, guid: 9ced8d361068fc2429732acaf81f2b12, type: 2}
 --- !u!1 &1270817366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,6 +2009,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
+  toggleInputEvent: {fileID: 11400000, guid: ea86a42990abf214ca64f4876367f3a1, type: 2}
+  scoreEvent: {fileID: 11400000, guid: 9ced8d361068fc2429732acaf81f2b12, type: 2}
+  maxScoreEvent: {fileID: 11400000, guid: 6eb65ced3c65b51429835ea4f2fe66ab, type: 2}
+  pointsEvent: {fileID: 11400000, guid: 4b44ef9f90af48241b754d85d83ef788, type: 2}
 --- !u!4 &1768587341
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,10 +2059,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
+  toggleInputEvent: {fileID: 11400000, guid: ea86a42990abf214ca64f4876367f3a1, type: 2}
   eventSystem: {fileID: 1122987296}
   menuPanel: {fileID: 397366141}
   levelPanel: {fileID: 1725727628}
   gameOverPanel: {fileID: 940342772}
-  scoreLabel: {fileID: 1252074635}
-  pointsLabel: {fileID: 178006947}
-  highscoreLabel: {fileID: 223394890}

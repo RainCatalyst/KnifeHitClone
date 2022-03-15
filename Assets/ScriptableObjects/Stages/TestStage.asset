@@ -16,12 +16,10 @@ MonoBehaviour:
   levelCount: 3
   logData: {fileID: 11400000, guid: d4388a4e7f2df8a4dbef8fd0e524c2f9, type: 2}
   knifeData: {fileID: 11400000, guid: dc6a417b27aba544d81e3ced84390025, type: 2}
-  appleCountRange:
-    min: 1
-    max: 1
+  appleChance: 1
   knifeCountRange:
-    min: 1
-    max: 3
+    min: 8
+    max: 8
   hitCountRange:
     min: 3
     max: 6

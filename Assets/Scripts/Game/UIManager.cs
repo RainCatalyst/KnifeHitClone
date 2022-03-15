@@ -11,30 +11,22 @@ public class UIManager : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
+    [SerializeField] ToggleEventChannelSO toggleInputEvent;
 
     [Header("UI")]
     [SerializeField] EventSystem eventSystem;
     [SerializeField] UIPanel menuPanel;
     [SerializeField] UIPanel levelPanel;
     [SerializeField] UIPanel gameOverPanel;
-    [SerializeField] TextMeshProUGUI scoreLabel;
-    [SerializeField] TextMeshProUGUI pointsLabel;
-    [SerializeField] TextMeshProUGUI highscoreLabel;
 
     void OnEnable()
     {
-        gameEvents.OnInputToggled += OnInputToggled;
-        gameEvents.OnScoreUpdated += OnScoreUpdated;
-        gameEvents.OnPointsUpdated += OnPointsUpdated;
-        gameEvents.OnHighscoreUpdated += OnHighscoreUpdated;
+        toggleInputEvent.OnEventRaised += OnInputToggled;
     }
 
     void OnDisable()
     {
-        gameEvents.OnInputToggled -= OnInputToggled;
-        gameEvents.OnScoreUpdated -= OnScoreUpdated;
-        gameEvents.OnPointsUpdated -= OnPointsUpdated;
-        gameEvents.OnHighscoreUpdated -= OnHighscoreUpdated;
+        toggleInputEvent.OnEventRaised -= OnInputToggled;
     }
 
     public void OpenMenuPanel() => menuPanel.Open();
@@ -44,14 +36,5 @@ public class UIManager : MonoBehaviour
     public void OpenGameOverPanel() => gameOverPanel.Open();
     public void CloseGameOverPanel() => gameOverPanel.Close();
 
-    void OnInputToggled(bool enable)
-    {
-        eventSystem.enabled = enable;
-    }
-
-    void OnScoreUpdated(int score) => scoreLabel.text = $"{score}";
-
-    void OnPointsUpdated(int points) => pointsLabel.text = $"{points}";
-
-    void OnHighscoreUpdated(int highscore) => highscoreLabel.text = $"Highscore: {highscore}";
+    void OnInputToggled(bool enable) => eventSystem.enabled = enable;
 }

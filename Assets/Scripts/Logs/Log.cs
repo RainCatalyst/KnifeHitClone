@@ -9,6 +9,8 @@ public class Log : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] LevelEventChannelSO levelEvents;
+    [SerializeField] IntEventChannelSO maxKnifeCountEvent;
+    [SerializeField] IntEventChannelSO knifeCountEvent;
 
     [Header("Properties")]
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -27,7 +29,7 @@ public class Log : MonoBehaviour
         get => hp;
         set {
             hp = value;
-            levelEvents.UpdateKnives(hp);
+            knifeCountEvent.UpdateValue(hp);
             if (hp == 0)
                 Explode();
         }
@@ -45,18 +47,12 @@ public class Log : MonoBehaviour
 
     void OnEnable()
     {
-        levelEvents.OnMaxKnivesUpdated += OnMaxKnivesUpdated;
-        // levelEvents.OnLevelFinished += OnLevelFinished;
-        // levelEvents.OnKnifeHit += OnKnifeHit;
-        // levelEvents.OnKnifeDeflected += OnKnifeDeflected;
+        maxKnifeCountEvent.OnValueUpdated += OnMaxKnivesUpdated;
     }
 
     void OnDisable()
     {
-        levelEvents.OnMaxKnivesUpdated -= OnMaxKnivesUpdated;
-        // levelEvents.OnLevelFinished -= OnLevelFinished;
-        // levelEvents.OnKnifeHit -= OnKnifeHit;
-        // levelEvents.OnKnifeDeflected -= OnKnifeDeflected;
+        maxKnifeCountEvent.OnValueUpdated -= OnMaxKnivesUpdated;
     }
 
     void Update()
@@ -86,6 +82,9 @@ public class Log : MonoBehaviour
     {
         // Spawn effect
         Instantiate(explodeEffect, transform.position, Quaternion.identity);
+
+        // Vibrate
+        Vibration.VibratePeek();
 
         // Detach children
         foreach (Transform child in knifeHolder) {

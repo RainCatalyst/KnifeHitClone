@@ -45,7 +45,7 @@ public class LevelDataSO : ScriptableObject
         {
             // Add apples to the log
             var apple = Instantiate(applePrefab);
-            log.AddApple(apple, applePosition);
+            log.AddApple(apple, Mathf.Deg2Rad * applePosition);
         }
 
         return log;

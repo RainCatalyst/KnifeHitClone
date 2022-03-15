@@ -90,8 +90,8 @@ public class Knife : MonoBehaviour
         Log log;
         if (other.gameObject.TryGetComponent(out log)) {
             log.HitKnife(this);
+            Vibration.Vibrate(30);
             animation.Play("Hit");
-            levelEvents.HitKnife();
         }
 
         Knife knife;
@@ -99,6 +99,7 @@ public class Knife : MonoBehaviour
             if (knife.IsStuck) {
                 Release();
                 Deflect();
+                Vibration.VibratePeek();
                 levelEvents.DeflectKnife();
             }
         }

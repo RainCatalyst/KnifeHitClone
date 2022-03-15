@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "NewToggleEventChannel", menuName = "Events/Toggle Event Channel")]
-public class ToggleEventChannelSO : MonoBehaviour
+namespace EventChannels
 {
-    public event UnityAction<bool> OnEventRaised;
+    [CreateAssetMenu(fileName = "NewToggleEventChannel", menuName = "Events/Toggle Event Channel")]
+    public class ToggleEventChannelSO : ScriptableObject
+    {
+        public event UnityAction<bool> OnEventRaised;
 
-    public void RaiseEvent(bool toggle) => OnEventRaised?.Invoke(toggle);
+        public void RaiseEvent(bool toggle) => OnEventRaised?.Invoke(toggle);
+    }
 }

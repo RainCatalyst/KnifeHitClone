@@ -10,6 +10,11 @@ public class LevelManager : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
     [SerializeField] LevelEventChannelSO levelEvents;
+    [SerializeField] IntEventChannelSO maxKnifeCountEvent;
+    // [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] IntEventChannelSO scoreEvent;
+    [SerializeField] IntEventChannelSO maxScoreEvent;
+    [SerializeField] IntEventChannelSO pointsEvent;
 
     [Header("Stage Properties")]
     [SerializeField] StageDataSO[] stages;
@@ -32,8 +37,6 @@ public class LevelManager : MonoBehaviour
         gameEvents.OnGameFinished += OnGameFinished;
         gameEvents.OnLevelStarted += OnLevelStarted;
         gameEvents.OnLevelFinished += OnLevelFinished;
-        // levelEvents.OnKnivesUpdated += OnKnivesUpdated;
-        // levelEvents.OnKnifeHit += OnKnifeHit;
         levelEvents.OnLogDestroyed += OnLogDestroyed;
         levelEvents.OnKnifeDeflected += OnKnifeDeflected;
         levelEvents.OnAppleDestroyed += OnAppleDestroyed;
@@ -45,8 +48,7 @@ public class LevelManager : MonoBehaviour
         gameEvents.OnGameFinished -= OnGameFinished;
         gameEvents.OnLevelStarted -= OnLevelStarted;
         gameEvents.OnLevelFinished -= OnLevelFinished;
-        // levelEvents.OnKnivesUpdated -= OnKnivesUpdated;
-        // levelEvents.OnKnifeHit -= OnKnifeHit;
+        levelEvents.OnLogDestroyed -= OnLogDestroyed;
         levelEvents.OnKnifeDeflected -= OnKnifeDeflected;
         levelEvents.OnAppleDestroyed -= OnAppleDestroyed;
     }
@@ -74,7 +76,7 @@ public class LevelManager : MonoBehaviour
         else
             levelData = currentStage.GetBossLevel();
         levelSpawner.SpawnLevel(levelData);
-        levelEvents.UpdateMaxKnives(levelData.HitCount);
+        maxKnifeCountEvent.UpdateValue(levelData.HitCount);
     }
 
     void OnLevelFinished(bool win)
@@ -88,7 +90,7 @@ public class LevelManager : MonoBehaviour
                 currentStage = stages[stageIdx];
                 levelIdx = 0;
             }
-            gameEvents.AddScore();
+            scoreEvent.AddValue();
         }
             
     }
@@ -105,6 +107,6 @@ public class LevelManager : MonoBehaviour
 
     void OnAppleDestroyed()
     {
-        gameEvents.AddPoint();
+        pointsEvent.AddValue();
     }
 }

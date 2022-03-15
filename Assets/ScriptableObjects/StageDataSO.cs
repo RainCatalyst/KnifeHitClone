@@ -18,7 +18,7 @@ public class StageDataSO : ScriptableObject
     [SerializeField] int levelCount;
     [SerializeField] LogDataSO logData;
     [SerializeField] KnifeDataSO knifeData;
-    [SerializeField] MinMaxTuple appleCountRange;
+    [SerializeField] float appleChance;
     [SerializeField] MinMaxTuple knifeCountRange;
     [SerializeField] MinMaxTuple hitCountRange;
     [SerializeField] AnimationCurve[] animationCurves;
@@ -29,12 +29,14 @@ public class StageDataSO : ScriptableObject
 
     readonly int slotCount = 10;
 
-
     public LevelDataSO CreateLevel()
     {
         var slots = CreateSlots();
         var knifePositions = GenerateKnives(slots);
-        var applePositions = GenerateApples(slots);
+        var applePositions = new float[0];
+        if (Random.value < appleChance)
+            applePositions = GenerateApple(slots);
+        
         int hitCount = hitCountRange.GetRandom();
         var rotationCurve = animationCurves[Random.Range(0, animationCurves.Length)];
 
@@ -52,7 +54,7 @@ public class StageDataSO : ScriptableObject
     List<float> CreateSlots()
     {
         var slots = new List<float>();
-        float slotStep = 360f / slotCount;
+        float slotStep = 360f / (slotCount);
         for (int i = 0; i < slotCount; i++)
         {
             slots.Add(i * slotStep);
@@ -78,18 +80,14 @@ public class StageDataSO : ScriptableObject
         return knifePositions;
     }
 
-    float[] GenerateApples(List<float> slots)
+    float[] GenerateApple(List<float> slots)
     {
-        var appleCount = appleCountRange.GetRandom();
+        var appleCount = 1;
         var applePositions = new float[appleCount];
 
-        for (int i = 0; i < appleCount; i++)
-        {
-            var slotIdx = Random.Range(0, slots.Count);
-
-            applePositions[i] = slots[slotIdx];
-            slots.RemoveAt(slotIdx);
-        }
+        var slotIdx = Random.Range(0, slots.Count);
+        applePositions[0] = slots[slotIdx];
+        slots.RemoveAt(slotIdx);
 
         return applePositions;
     }
