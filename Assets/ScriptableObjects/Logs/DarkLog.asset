@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3e4b87e5d7d8b4eb7b96fbc7a24320, type: 3}
+  m_Name: DarkLog
+  m_EditorClassIdentifier: 
+  logName: Dark Log
+  sprite: {fileID: 21300000, guid: 8a2a5dc0def5b6e48a334963454f244f, type: 3}
+  radius: 1.5
+  destroyEffect: {fileID: 7212170776095040909, guid: 8ba1f3d0d0397374f8510cb946fc76d7, type: 3}
+  hitEffect: {fileID: 1571356515512788171, guid: ca49a82066ad9204e97a9a964f457c39, type: 3}
