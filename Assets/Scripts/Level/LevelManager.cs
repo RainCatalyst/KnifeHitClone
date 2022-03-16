@@ -10,8 +10,7 @@ public class LevelManager : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
     [SerializeField] LevelEventChannelSO levelEvents;
-    [SerializeField] IntEventChannelSO maxKnifeCountEvent;
-    // [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] BoundIntEventChannelSO knifeCountEvent;
     [SerializeField] IntEventChannelSO scoreEvent;
     [SerializeField] IntEventChannelSO maxScoreEvent;
     [SerializeField] IntEventChannelSO pointsEvent;
@@ -76,7 +75,7 @@ public class LevelManager : MonoBehaviour
         else
             levelData = currentStage.GetBossLevel();
         levelSpawner.SpawnLevel(levelData);
-        maxKnifeCountEvent.UpdateValue(levelData.HitCount);
+        knifeCountEvent.UpdateMaxValue(levelData.HitCount);
     }
 
     void OnLevelFinished(bool win)

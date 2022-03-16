@@ -912,7 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
   levelEvents: {fileID: 11400000, guid: 2d40b68e1cea70f4e89b61fcf39f999a, type: 2}
-  maxKnifeCountEvent: {fileID: 11400000, guid: 9e34789706450fa41a87e0aa83fa70bb, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: fc04cc7e976bd034f9710bf039816f2f, type: 2}
   scoreEvent: {fileID: 11400000, guid: 9ced8d361068fc2429732acaf81f2b12, type: 2}
   maxScoreEvent: {fileID: 11400000, guid: 6eb65ced3c65b51429835ea4f2fe66ab, type: 2}
   pointsEvent: {fileID: 11400000, guid: 4b44ef9f90af48241b754d85d83ef788, type: 2}
@@ -1351,8 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88bc2be76ebbde745b7eb78f8871b505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxKnifeCountEvent: {fileID: 11400000, guid: 9e34789706450fa41a87e0aa83fa70bb, type: 2}
-  knifeCountEvent: {fileID: 11400000, guid: 4138e9ff19c58b948a48fbffd50b2020, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: fc04cc7e976bd034f9710bf039816f2f, type: 2}
   knifeIconPrefab: {fileID: 6489792406323242797, guid: 5470accad35754244a926eb40f37137c, type: 3}
 --- !u!1 &1122987294
 GameObject:
@@ -1465,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvents: {fileID: 11400000, guid: d0065f8f3c14e0c47b402365a1748f6c, type: 2}
-  knifeCountEvent: {fileID: 11400000, guid: 4138e9ff19c58b948a48fbffd50b2020, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: fc04cc7e976bd034f9710bf039816f2f, type: 2}
   toggleInputEvent: {fileID: 11400000, guid: ea86a42990abf214ca64f4876367f3a1, type: 2}
   knifePrefab: {fileID: 291590579984401471, guid: 2aed5cac47baddf4a9d5a98cbe847726, type: 3}
   knifeData: {fileID: 11400000, guid: dc6a417b27aba544d81e3ced84390025, type: 2}

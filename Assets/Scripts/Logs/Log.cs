@@ -9,8 +9,7 @@ public class Log : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] LevelEventChannelSO levelEvents;
-    [SerializeField] IntEventChannelSO maxKnifeCountEvent;
-    [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] BoundIntEventChannelSO knifeCountEvent;
 
     [Header("Properties")]
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -48,12 +47,12 @@ public class Log : MonoBehaviour
 
     void OnEnable()
     {
-        maxKnifeCountEvent.OnValueUpdated += OnMaxKnivesUpdated;
+        knifeCountEvent.OnMaxValueUpdated += OnMaxKnivesUpdated;
     }
 
     void OnDisable()
     {
-        maxKnifeCountEvent.OnValueUpdated -= OnMaxKnivesUpdated;
+        knifeCountEvent.OnMaxValueUpdated -= OnMaxKnivesUpdated;
     }
 
     void Update()

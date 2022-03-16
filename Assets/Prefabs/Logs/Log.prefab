@@ -110,8 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEvents: {fileID: 11400000, guid: 2d40b68e1cea70f4e89b61fcf39f999a, type: 2}
-  maxKnifeCountEvent: {fileID: 11400000, guid: 9e34789706450fa41a87e0aa83fa70bb, type: 2}
-  knifeCountEvent: {fileID: 11400000, guid: 4138e9ff19c58b948a48fbffd50b2020, type: 2}
+  knifeCountEvent: {fileID: 11400000, guid: fc04cc7e976bd034f9710bf039816f2f, type: 2}
   spriteRenderer: {fileID: 4780232701930004853}
   rotatingHolder: {fileID: 1692010534065049410}
   knifeHolder: {fileID: 8008948675405458284}

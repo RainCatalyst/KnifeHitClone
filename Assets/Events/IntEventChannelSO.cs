@@ -8,5 +8,5 @@ public class IntEventChannelSO : ScriptableObject
     public event UnityAction OnValueAdded;
 
     public void AddValue() => OnValueAdded?.Invoke();
-    public void UpdateValue(int points) => OnValueUpdated?.Invoke(points);
+    public void UpdateValue(int value) => OnValueUpdated?.Invoke(value);
 }

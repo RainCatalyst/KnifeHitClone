@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
-    [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] BoundIntEventChannelSO knifeCountEvent;
     [SerializeField] BoolEventChannelSO toggleInputEvent;
 
     [Header("Knife Properties")]

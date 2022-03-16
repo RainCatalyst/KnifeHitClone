@@ -7,8 +7,7 @@ using EventChannels;
 public class KnifeIndicator : MonoBehaviour
 {
     [Header("Events")]
-    [SerializeField] IntEventChannelSO maxKnifeCountEvent;
-    [SerializeField] IntEventChannelSO knifeCountEvent;
+    [SerializeField] BoundIntEventChannelSO knifeCountEvent;
 
     [Header("Properties")]
     [SerializeField] KnifeIcon knifeIconPrefab;
@@ -17,13 +16,13 @@ public class KnifeIndicator : MonoBehaviour
 
     void OnEnable()
     {
-        maxKnifeCountEvent.OnValueUpdated += OnMaxKnivesUpdated;
+        knifeCountEvent.OnMaxValueUpdated += OnMaxKnivesUpdated;
         knifeCountEvent.OnValueUpdated += OnKnivesUpdated;
     }
 
     void OnDisable()
     {
-        maxKnifeCountEvent.OnValueUpdated -= OnMaxKnivesUpdated;
+        knifeCountEvent.OnMaxValueUpdated -= OnMaxKnivesUpdated;
         knifeCountEvent.OnValueUpdated -= OnKnivesUpdated;
     }
 
@@ -46,7 +45,6 @@ public class KnifeIndicator : MonoBehaviour
             }else{
                 knife.gameObject.SetActive(false);
             }
-                
         }
     }
 
