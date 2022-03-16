@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
-    [SerializeField] ToggleEventChannelSO toggleInputEvent;
+    [SerializeField] BoolEventChannelSO toggleInputEvent;
 
     [Header("UI")]
     [SerializeField] EventSystem eventSystem;

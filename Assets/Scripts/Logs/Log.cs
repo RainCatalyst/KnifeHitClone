@@ -38,6 +38,7 @@ public class Log : MonoBehaviour
     int hp;
     float time;
     bool stopped;
+    float speed;
 
     void Awake()
     {
@@ -57,9 +58,10 @@ public class Log : MonoBehaviour
 
     void Update()
     {
-        var speed = rotationCurve.Evaluate(time);
         if (stopped)
             speed = Mathf.Lerp(speed, 0f, Time.deltaTime * 8f);
+        else
+            speed = rotationCurve.Evaluate(time);
         rotatingHolder.Rotate(new Vector3(0f, 0f, speed * Mathf.Rad2Deg * Time.deltaTime));
         time += Time.deltaTime;
     }

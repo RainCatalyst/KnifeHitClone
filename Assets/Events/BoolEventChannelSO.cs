@@ -3,8 +3,8 @@ using UnityEngine.Events;
 
 namespace EventChannels
 {
-    [CreateAssetMenu(fileName = "NewToggleEventChannel", menuName = "Events/Toggle Event Channel")]
-    public class ToggleEventChannelSO : ScriptableObject
+    [CreateAssetMenu(fileName = "NewBoolEventChannel", menuName = "Events/Bool Event Channel")]
+    public class BoolEventChannelSO : ScriptableObject
     {
         public event UnityAction<bool> OnEventRaised;
 

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
-    [SerializeField] ToggleEventChannelSO toggleInputEvent;
+    [SerializeField] BoolEventChannelSO toggleInputEvent;
     [SerializeField] IntEventChannelSO scoreEvent;
     [SerializeField] IntEventChannelSO maxScoreEvent;
     [SerializeField] IntEventChannelSO pointsEvent;
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void EnableInput() => toggleInputEvent.RaiseEvent(true);
     public void DisableInput() => toggleInputEvent.RaiseEvent(false);
     public void StartLevel() => gameEvents.StartLevel();
+    public void FinishGame() => gameEvents.FinishGame();
 
     void Start()
     {
@@ -89,7 +90,6 @@ public class GameManager : MonoBehaviour
             maxScore = score;
             maxScoreEvent.UpdateValue(maxScore);
         }
-        animation.Play("GameOver");
         SavePlayerData();
     }
 
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (win)
             animation.Play("LevelTransition");
         else
-            gameEvents.FinishGame();
+            animation.Play("GameOver");
     }
 
     void OnScoreAdded()

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [Header("Events")]
     [SerializeField] GameEventChannelSO gameEvents;
     [SerializeField] IntEventChannelSO knifeCountEvent;
-    [SerializeField] ToggleEventChannelSO toggleInputEvent;
+    [SerializeField] BoolEventChannelSO toggleInputEvent;
 
     [Header("Knife Properties")]
     [SerializeField] Knife knifePrefab;
