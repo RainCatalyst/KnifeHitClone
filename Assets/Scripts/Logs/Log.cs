@@ -147,6 +147,7 @@ public class Log : MonoBehaviour
             
             // Hit effect
             Instantiate(hitEffect, knife.transform.position, Quaternion.identity);
+            Vibration.Vibrate(30);
         }else{
             knife.QueueDestroy();
         }

@@ -9,6 +9,8 @@ using EventChannels;
 public class ValueLabel : MonoBehaviour
 {
     [SerializeField] IntEventChannelSO valueEvent;
+    [SerializeField] string text;
+
     TextMeshProUGUI textMesh;
 
     void Awake()
@@ -26,5 +28,5 @@ public class ValueLabel : MonoBehaviour
         valueEvent.OnValueUpdated -= OnValueUpdated;
     }
 
-    void OnValueUpdated(int value) => textMesh.text = $"{value}";
+    void OnValueUpdated(int value) => textMesh.text = $"{text}{value}";
 }

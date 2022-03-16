@@ -61,19 +61,19 @@ public class Knife : MonoBehaviour
         stuck = false;
         baseCollider.enabled = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 3f;
+        rb.gravityScale = 6f;
         QueueDestroy();
     }
 
     public void BlastAway()
     {
-        rb.velocity = new Vector2(Random.Range(-10f, 10f), Random.Range(-2f, 10f));
+        rb.velocity = new Vector2(transform.up.x, transform.up.y) * 5f + new Vector2(Random.Range(-16f, 16f), Random.Range(5f, 13f));
         rb.angularVelocity = Random.Range(-360f, 360f);
     }
 
     public void Deflect()
     {
-        rb.velocity = -rb.velocity * 0.5f + new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(0.1f, -0.5f));
+        rb.velocity = -rb.velocity * 0.35f + new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(0.1f, -0.5f));
         rb.angularVelocity = Random.Range(-360f, 360f);
         QueueDestroy();
     }
@@ -90,7 +90,6 @@ public class Knife : MonoBehaviour
         Log log;
         if (other.gameObject.TryGetComponent(out log)) {
             log.HitKnife(this);
-            Vibration.Vibrate(30);
             animation.Play("Hit");
         }
 

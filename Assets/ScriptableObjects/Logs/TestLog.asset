@@ -15,5 +15,5 @@ MonoBehaviour:
   logName: Test Log
   sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   radius: 1.5
-  destroyEffect: {fileID: 7212170776095040909, guid: 8ba1f3d0d0397374f8510cb946fc76d7, type: 3}
+  destroyEffect: {fileID: 3701716826254787682, guid: 466c8d7b60dbed640847ab976d2cbcf7, type: 3}
   hitEffect: {fileID: 1571356515512788171, guid: ca49a82066ad9204e97a9a964f457c39, type: 3}

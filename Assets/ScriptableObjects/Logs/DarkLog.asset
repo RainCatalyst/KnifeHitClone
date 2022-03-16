@@ -15,5 +15,5 @@ MonoBehaviour:
   logName: Dark Log
   sprite: {fileID: 21300000, guid: 8a2a5dc0def5b6e48a334963454f244f, type: 3}
   radius: 1.5
-  destroyEffect: {fileID: 7212170776095040909, guid: 8ba1f3d0d0397374f8510cb946fc76d7, type: 3}
+  destroyEffect: {fileID: 157848653855678209, guid: 8ba1f3d0d0397374f8510cb946fc76d7, type: 3}
   hitEffect: {fileID: 1571356515512788171, guid: ca49a82066ad9204e97a9a964f457c39, type: 3}

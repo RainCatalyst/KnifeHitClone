@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
+        gameEvents.OnMenuOpened += OnMenuOpened;
         gameEvents.OnGameStarted += OnGameStarted;
         gameEvents.OnGameFinished += OnGameFinished;
         gameEvents.OnLevelStarted += OnLevelStarted;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void OnDisable()
     {
+        gameEvents.OnMenuOpened -= OnMenuOpened;
         gameEvents.OnGameStarted -= OnGameStarted;
         gameEvents.OnGameFinished -= OnGameFinished;
         gameEvents.OnLevelStarted -= OnLevelStarted;
@@ -66,6 +68,11 @@ public class GameManager : MonoBehaviour
         points = PlayerPrefs.GetInt("Points", 0);
         pointsEvent.UpdateValue(points);
         maxScoreEvent.UpdateValue(maxScore);
+    }
+
+    void OnMenuOpened()
+    {
+        animation.Play("OpenMenu");
     }
 
     void OnGameStarted()
