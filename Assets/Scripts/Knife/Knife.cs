@@ -86,21 +86,24 @@ public class Knife : MonoBehaviour
     {
         if (stuck)
             return;
+
+        Knife knife;
+        if (other.gameObject.TryGetComponent(out knife))
+        {
+            if (knife.IsStuck)
+            {
+                Release();
+                Deflect();
+                Vibration.VibratePeek();
+                levelEvents.DeflectKnife();
+                return;
+            }
+        }
         
         Log log;
         if (other.gameObject.TryGetComponent(out log)) {
             log.HitKnife(this);
             animation.Play("Hit");
-        }
-
-        Knife knife;
-        if (other.gameObject.TryGetComponent(out knife)) {
-            if (knife.IsStuck) {
-                Release();
-                Deflect();
-                Vibration.VibratePeek();
-                levelEvents.DeflectKnife();
-            }
         }
 
         Apple apple;
