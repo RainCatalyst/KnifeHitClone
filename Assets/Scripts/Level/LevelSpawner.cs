@@ -19,13 +19,6 @@ public class LevelSpawner : MonoBehaviour
         currentLevel.transform.SetParent(levelHolder, false);
     }
 
-    public void StopLevel()
-    {
-        currentLevel?.Stop();
-    }
-
-    public void HideLevel()
-    {
-        currentLevel?.Hide();
-    }
+    public void StopLevel() => currentLevel?.Stop();
+    public void HideLevel() => currentLevel?.Hide();
 }

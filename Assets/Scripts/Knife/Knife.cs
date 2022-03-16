@@ -20,7 +20,6 @@ public class Knife : MonoBehaviour
     public bool IsStuck => stuck;
 
     bool stuck;
-    bool last;
     Rigidbody2D rb;
     KnifeDataSO data;
     Animation animation;
@@ -67,7 +66,7 @@ public class Knife : MonoBehaviour
 
     public void BlastAway()
     {
-        rb.velocity = new Vector2(transform.up.x, transform.up.y) * 5f + new Vector2(Random.Range(-16f, 16f), Random.Range(5f, 13f));
+        rb.velocity = new Vector2(transform.up.x, transform.up.y) * 6f + new Vector2(Random.Range(-16f, 16f), Random.Range(5f, 13f));
         rb.angularVelocity = Random.Range(-360f, 360f);
     }
 
@@ -87,6 +86,7 @@ public class Knife : MonoBehaviour
     {
         if (stuck)
             return;
+        
         Log log;
         if (other.gameObject.TryGetComponent(out log)) {
             log.HitKnife(this);

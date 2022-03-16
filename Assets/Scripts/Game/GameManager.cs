@@ -93,10 +93,7 @@ public class GameManager : MonoBehaviour
         SavePlayerData();
     }
 
-    void OnLevelStarted()
-    {
-        // animator.Play("LevelStart");
-    }
+    void OnLevelStarted() {}
 
     void OnLevelFinished(bool win)
     {

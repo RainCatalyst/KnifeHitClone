@@ -62,7 +62,6 @@ public class LevelManager : MonoBehaviour
 
     void OnGameFinished()
     {
-        // Happens after level end
         levelSpawner.HideLevel();
     }
 
@@ -94,18 +93,7 @@ public class LevelManager : MonoBehaviour
             
     }
 
-    void OnLogDestroyed()
-    {
-        gameEvents.FinishLevel(true);
-    }
-
-    void OnKnifeDeflected()
-    {
-        gameEvents.FinishLevel(false);
-    }
-
-    void OnAppleDestroyed()
-    {
-        pointsEvent.AddValue();
-    }
+    void OnLogDestroyed() => gameEvents.FinishLevel(true);
+    void OnKnifeDeflected() => gameEvents.FinishLevel(false);
+    void OnAppleDestroyed() => pointsEvent.AddValue();
 }
